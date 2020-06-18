@@ -43,10 +43,12 @@
         var generate = function() {
 
             // Prompt the user with options for Password Generation
+            var pLength = prompt("How many characters in length should the new password be?");
             var includeCaps = confirm("Would you like to include capital letters?");
             var includeSpecial = confirm("Would you like to include special characters?");
             var includeNumbers = confirm("Would you like to include numbers?");
-            var pLength = prompt("How many characters in length?");
+           
+            var newPWord = "";
 
             // Set up the array for all Possible Characters
             // starting with all the lowercase letters.
@@ -57,21 +59,31 @@
             // various char options
 
             if (includeCaps) {
-                allPossibleChars.push(caps);
+                allPossibleChars = allPossibleChars.concat(caps);
             }
             if (includeSpecial) {
-                allPossiblechars.push(Special);
+                allPossibleChars = allPossibleChars.concat(specials);
             }
             if (includeNumbers) {
-                allPossiblechars.push(Numbers);
+                allPossibleChars = allPossibleChars.concat(numbers);
             }
             
-            // if (pLength > 0) {
+            console.log(allPossibleChars);
+            // Generate a password with a character count that equals the length the user requested
+            if (pLength > 0) {
 
-            //     for (var i = 0; i < pLength; i++) {
+                for (var i = 0; i < pLength; i++) {
+                    newPWord = newPWord + randomChar(allPossibleChars);
+                }
 
-            //     }
-            // }
+                // Take the new Password and display it in the DOM
+
+                var pWordContainer = document.getElementById("pWord");
+
+                pWordContainer.text = newPWord;
+                console.log(newPWord);
+
+            } else { alert("Please try again and enter a integer length for the password length"); }
 
 
         }
