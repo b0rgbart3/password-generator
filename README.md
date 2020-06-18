@@ -21,3 +21,12 @@ SO THAT I can create a strong password that provides greater security
 ### Validations
 
 * User input for password length is validated to be only between 8 and 128 characters
+
+Technologies | 
+------------ 
+* HTML 5 |
+* CSS 3 |
+* Bootstrap CDN |
+* Javascript |
+
+
