@@ -17,6 +17,65 @@
             border:1px solid green;
         }
     </style>
+    <script>
+        // Set up all the possible characters that could be
+        // included in a password.
+        var caps = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+          
+        var specials = [' ', '!', "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?",
+        "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~" ];
+        var numbers = ["1","2","3","4","5","6","7","8","9","0"];
+
+        // Generate an array of lowercase letters.
+        var lowercases = caps.map(function callback( currentValue ) {
+            return currentValue.toLowerCase();
+        });
+
+        // return a random string from any array
+        var randomChar = function( argArray ) {
+            var count = argArray.length;
+            var randomIndex = Math.floor(Math.random() * count);
+            return argArray[randomIndex];
+        }
+
+        // When the user clicks the Generate Button, this function
+        // will get called.
+        var generate = function() {
+
+            // Prompt the user with options for Password Generation
+            var includeCaps = confirm("Would you like to include capital letters?");
+            var includeSpecial = confirm("Would you like to include special characters?");
+            var includeNumbers = confirm("Would you like to include numbers?");
+            var pLength = prompt("How many characters in length?");
+
+            // Set up the array for all Possible Characters
+            // starting with all the lowercase letters.
+
+            var allPossibleChars = lowercases;
+
+            // Based on user choices, append to this array the other 
+            // various char options
+
+            if (includeCaps) {
+                allPossibleChars.push(caps);
+            }
+            if (includeSpecial) {
+                allPossiblechars.push(Special);
+            }
+            if (includeNumbers) {
+                allPossiblechars.push(Numbers);
+            }
+            
+            // if (pLength > 0) {
+
+            //     for (var i = 0; i < pLength; i++) {
+
+            //     }
+            // }
+
+
+        }
+    </script>
   </head>
   <body class="bg-light">
       <section class='container'>
@@ -40,7 +99,7 @@
            <div class='row'>
                 <div class='card col-sm-12 d-flex'>
                     <div class="card-body d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary">Generate Password</button>
+                        <button type="button" class="btn btn-primary" onclick="generate();">Generate Password</button>
                     </div>
                 </div>
            </div>  <!-- end of row-->
